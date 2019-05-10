@@ -4,6 +4,7 @@ import { FaTrash } from 'react-icons/fa'
 import { FaSave } from 'react-icons/fa'
 
 class Note extends Component {
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -13,13 +14,15 @@ class Note extends Component {
 		this.save = this.save.bind(this)
 		this.remove = this.remove.bind(this)
 		this.renderForm = this.renderForm.bind(this)
-		this.renderDisplay = this.renderDisplay.bind(this)
+		this.renderDisplay = this.renderDisplay.bind(this)		
 	}
+
 	edit() {
 		this.setState({
 			editing: true
 		})
 	}
+	
 	save(e) {
 		e.preventDefault()
 		this.props.onChange(this._newText.value, this.props.index)
@@ -27,9 +30,11 @@ class Note extends Component {
 			editing: false
 		})
 	}
+
 	remove() {
 		this.props.onRemove(this.props.index)
 	}
+
 	renderForm() {
 		return (
 			<div className="note">
@@ -40,6 +45,7 @@ class Note extends Component {
 			</div>
 		)
 	}
+
 	renderDisplay() {
 		return (
 			<div className="note">
@@ -51,6 +57,7 @@ class Note extends Component {
 			</div>
 		)
 	}
+
 	render() {
 		if(this.state.editing) {
 			return this.renderForm()
