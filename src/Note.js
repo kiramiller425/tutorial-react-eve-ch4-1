@@ -28,7 +28,7 @@ class Note extends Component {
 		})
 	}
 	remove() {
-		alert('removing note')
+		this.props.onRemove(this.props.index)
 	}
 	renderForm() {
 		return (
